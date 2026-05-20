@@ -1,6 +1,6 @@
-# TokenPrune - Qwen3 Model Implementation
+# Qwen3Base
 
-A modular implementation of the Qwen3 architecture designed for easy architectural experimentation and token pruning research.
+A from-scratch implementation of the Qwen3-0.6B architecture written for experimentation on the base model.
 
 ## Quick Start
 
@@ -64,7 +64,7 @@ Or use in your code:
 
 ```python
 import torch
-from TokenPrune import Qwen3ForCausalLM, load_tokenizer
+from Qwen3Base import Qwen3ForCausalLM, load_tokenizer
 
 # Load model
 model_path = "../qwen3_06b_base"
@@ -121,7 +121,7 @@ The implementation is modular and follows the Qwen3 architecture:
 ### Example: Modifying Attention
 
 ```python
-from TokenPrune import Qwen3Attention, Qwen3Config
+from Qwen3Base import Qwen3Attention, Qwen3Config
 
 class CustomAttention(Qwen3Attention):
     def forward(self, hidden_states, attention_mask=None, position_ids=None, 
@@ -139,7 +139,7 @@ class CustomAttention(Qwen3Attention):
 ### Example: Modifying the Decoder Layer
 
 ```python
-from TokenPrune import Qwen3DecoderLayer
+from Qwen3Base import Qwen3DecoderLayer
 
 class CustomDecoderLayer(Qwen3DecoderLayer):
     def __init__(self, config, layer_idx):
@@ -164,7 +164,7 @@ class CustomDecoderLayer(Qwen3DecoderLayer):
 | Num KV Heads | 8 |
 | Head Dim | 128 |
 | Vocab Size | 151936 |
-| Max Position Embeddings | 32768 |
+| Max Position Embeddings | 40960 |
 
 ## Dependencies
 
@@ -175,7 +175,7 @@ pip install torch transformers safetensors datasets wandb tqdm
 ## File Structure
 
 ```
-TokenPrune/
+Qwen3Base/
 ├── __init__.py                 # Package exports
 ├── config.py                   # Model configuration
 ├── attention.py                # Attention and normalization layers
