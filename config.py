@@ -17,7 +17,7 @@ class Qwen3Config:
     num_key_value_heads: int = 8
     head_dim: int = 128
     hidden_act: str = "silu"
-    max_position_embeddings: int = 32768
+    max_position_embeddings: int = 40960
     initializer_range: float = 0.02
     rms_norm_eps: float = 1e-6
     use_cache: bool = True
@@ -27,7 +27,10 @@ class Qwen3Config:
     attention_bias: bool = False
     attention_dropout: float = 0.0
     bos_token_id: int = 151643
-    eos_token_id: int = 151643
+    eos_token_id: int = 151645
+    use_sliding_window: bool = False
+    sliding_window: Optional[int] = None
+    max_window_layers: int = 28
     checkpoint_activations: bool = False
     
     @classmethod
